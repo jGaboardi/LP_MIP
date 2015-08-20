@@ -1,0 +1,32 @@
+
+Gurobi 6.0.2 (mac64) logging started Thu Aug 20 15:57:32 2015
+
+Optimize a model with 5 rows, 5 columns and 25 nonzeros
+Coefficient statistics:
+  Matrix range    [5e+00, 5e+01]
+  Objective range [1e+01, 2e+01]
+  Bounds range    [0e+00, 0e+00]
+  RHS range       [2e+01, 2e+01]
+Presolve time: 0.00s
+Presolved: 5 rows, 5 columns, 25 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   1.421875e+00   0.000000e+00      0s
+       2    8.6978673e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 2 iterations and 0.01 seconds
+Optimal objective  8.697867299e+00
+Optimize a model with 5 rows, 5 columns and 5 nonzeros
+Coefficient statistics:
+  Matrix range    [7e+01, 2e+02]
+  Objective range [2e+01, 2e+01]
+  Bounds range    [0e+00, 0e+00]
+  RHS range       [1e+01, 2e+01]
+Presolve removed 5 rows and 5 columns
+Presolve time: 0.01s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.0189809e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.01 seconds
+Optimal objective  1.018980898e+01
