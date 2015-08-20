@@ -55,11 +55,11 @@ mDual_Canonical_GUROBI.setObjective(gbp.quicksum(Bi[orig]*desc_var[orig][0]
 # Constraints
 for dest in cols:
     mDual_Canonical_GUROBI.addConstr(gbp.quicksum(Aij[orig][dest]*desc_var[dest][0] 
-                        for orig in rows) - Bi[dest] <= 0)
+                        for orig in rows) - Cj[dest] <= 0)
 # Optimize
 mDual_Canonical_GUROBI.optimize()
 # Write LP file
-mDual_Canonical_GUROBI.write('/Users/jgaboardi/Desktop.lp')
+mDual_Canonical_GUROBI.write('LP.lp')
 print '\n*************************************************************************'
 print '    |   Decision Variables'
 for v in mDual_Canonical_GUROBI.getVars():
