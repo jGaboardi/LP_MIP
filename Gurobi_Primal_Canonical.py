@@ -40,21 +40,21 @@ mPrimal_Canonical_GUROBI = gbp.Model(' -- Canonical Primal Linear Programming Pr
 gbp.setParam('MIPFocus', 2)
 
 # Decision Variables
-serv_var = []
+desc_var = []
 for dest in cols:
-    serv_var.append([])
-    serv_var[dest].append(mPrimal_Canonical_GUROBI.addVar(vtype=gbp.GRB.CONTINUOUS, 
+    desc_var.append([])
+    desc_var[dest].append(mPrimal_Canonical_GUROBI.addVar(vtype=gbp.GRB.CONTINUOUS, 
                                     name='y'+str(dest+1)))
 # Update Model
 mPrimal_Canonical_GUROBI.update()
 
 #Objective Function
-mPrimal_Canonical_GUROBI.setObjective(gbp.quicksum(Cj[dest]*serv_var[dest][0] 
+mPrimal_Canonical_GUROBI.setObjective(gbp.quicksum(Cj[dest]*desc_var[dest][0] 
                         for dest in cols), 
                         gbp.GRB.MINIMIZE)
 # Constraints
 for orig in rows:
-    mPrimal_Canonical_GUROBI.addConstr(gbp.quicksum(Aij[orig][dest]*serv_var[dest][0] 
+    mPrimal_Canonical_GUROBI.addConstr(gbp.quicksum(Aij[orig][dest]*desc_var[dest][0] 
                         for dest in cols) - Bi[orig] >= 0)
 # Optimize
 mPrimal_Canonical_GUROBI.optimize()
