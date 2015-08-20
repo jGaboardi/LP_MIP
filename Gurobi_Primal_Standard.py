@@ -34,7 +34,7 @@ rows = range(len(Aij))
 cols = range(len(Aij[0]))
 
 # Instantiate Model
-mPrimal_Standard_GUROBI = gbp.Model(' -- Standard  Primal Linear Programming Problem -- ')
+mPrimal_Standard_GUROBI = gbp.Model(' -- Standard Primal Linear Programming Problem -- ')
 
 # Set Focus to Optimality
 gbp.setParam('MIPFocus', 2)
@@ -46,6 +46,13 @@ for dest in cols:
     desc_var[dest].append(mPrimal_Standard_GUROBI.addVar(vtype=gbp.GRB.CONTINUOUS, 
                                     name='y'+str(dest+1)))
 
+# Surplus Variables
+surp_var = []
+for orig in rows:
+    surp_var.append([])
+    surp_var[orig].append(mPrimal_Standard_GUROBI.addVar(vtype=gbp.GRB.CONTINUOUS, 
+                                   name='s'+str(orig+1)))
+
 # Update Model
 mPrimal_Standard_GUROBI.update()
 
@@ -53,15 +60,20 @@ mPrimal_Standard_GUROBI.update()
 mPrimal_Standard_GUROBI.setObjective(gbp.quicksum(Cj[dest]*desc_var[dest][0] 
                         for dest in cols), 
                         gbp.GRB.MINIMIZE)
+
 # Constraints
 for orig in rows:
     mPrimal_Standard_GUROBI.addConstr(gbp.quicksum(Aij[orig][dest]*desc_var[dest][0] 
-                        for dest in cols) - Bi[orig] >= 0)
+                                        for dest in cols) 
+                                        - surp_var[orig][0] 
+                                        - Bi[orig] == 0)
+
 # Optimize
 mPrimal_Standard_GUROBI.optimize()
 # Write LP file
-mPrimal_Standard_GUROBI.write('/path/LP.lp')
+mPrimal_Standard_GUROBI.write('LP.lp')
 print '\n*************************************************************************'
+print '    |   Decision Variables'
 for v in mPrimal_Standard_GUROBI.getVars():
     print '    |  ', v.VarName, '=', v.x
 print '*************************************************************************'

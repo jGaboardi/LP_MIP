@@ -59,7 +59,7 @@ for orig in rows:
 # Optimize
 mPrimal_Canonical_GUROBI.optimize()
 # Write LP file
-mPrimal_Canonical_GUROBI.write('/path/LP.lp')
+mPrimal_Canonical_GUROBI.write('LP.lp')
 print '\n*************************************************************************'
 for v in mPrimal_Canonical_GUROBI.getVars():
     print '    |  ', v.VarName, '=', v.x
