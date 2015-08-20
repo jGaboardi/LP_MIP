@@ -61,6 +61,7 @@ mPrimal_Canonical_GUROBI.optimize()
 # Write LP file
 mPrimal_Canonical_GUROBI.write('LP.lp')
 print '\n*************************************************************************'
+print '    |   Decision Variables'
 for v in mPrimal_Canonical_GUROBI.getVars():
     print '    |  ', v.VarName, '=', v.x
 print '*************************************************************************'
