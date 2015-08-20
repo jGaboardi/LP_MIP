@@ -5,7 +5,7 @@ GNU LESSER GENERAL PUBLIC LICENSE
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
 '''
-# Building a Canonical Primal Linear Programming Problem 
+# Building a Standard Primal Linear Programming Problem 
 #    in Python/Gurobi[gurobipy]
 #
 '''
@@ -34,7 +34,7 @@ rows = range(len(Aij))
 cols = range(len(Aij[0]))
 
 # Instantiate Model
-mPrimal_Canonical_GUROBI = gbp.Model(' -- Canonical Primal Linear Programming Problem -- ')
+mPrimal_Standard_GUROBI = gbp.Model(' -- Standard  Primal Linear Programming Problem -- ')
 
 # Set Focus to Optimality
 gbp.setParam('MIPFocus', 2)
@@ -43,28 +43,28 @@ gbp.setParam('MIPFocus', 2)
 serv_var = []
 for dest in cols:
     serv_var.append([])
-    serv_var[dest].append(mPrimal_Canonical_GUROBI.addVar(vtype=gbp.GRB.CONTINUOUS, 
+    serv_var[dest].append(mPrimal_Standard_GUROBI.addVar(vtype=gbp.GRB.CONTINUOUS, 
                                     name='y'+str(dest+1)))
 # Update Model
-mPrimal_Canonical_GUROBI.update()
+mPrimal_Standard_GUROBI.update()
 
 #Objective Function
-mPrimal_Canonical_GUROBI.setObjective(gbp.quicksum(Cj[dest]*serv_var[dest][0] 
+mPrimal_Standard_GUROBI.setObjective(gbp.quicksum(Cj[dest]*serv_var[dest][0] 
                         for dest in cols), 
                         gbp.GRB.MINIMIZE)
 # Constraints
 for orig in rows:
-    mPrimal_Canonical_GUROBI.addConstr(gbp.quicksum(Aij[orig][dest]*serv_var[dest][0] 
+    mPrimal_Standard_GUROBI.addConstr(gbp.quicksum(Aij[orig][dest]*serv_var[dest][0] 
                         for dest in cols) - Bi[orig] >= 0)
 # Optimize
-mPrimal_Canonical_GUROBI.optimize()
+mPrimal_Standard_GUROBI.optimize()
 # Write LP file
-mPrimal_Canonical_GUROBI.write('/path/LP.lp')
+mPrimal_Standard_GUROBI.write('/path/LP.lp')
 print '\n*************************************************************************'
-for v in mPrimal_Canonical_GUROBI.getVars():
+for v in mPrimal_Standard_GUROBI.getVars():
     print '    |  ', v.VarName, '=', v.x
 print '*************************************************************************'
-val = mPrimal_Canonical_GUROBI.objVal
+val = mPrimal_Standard_GUROBI.objVal
 print '    |   Objective Value ------------------ ', val
 print '    |   Aij Sum -------------------------- ', AijSum
 print '    |   Cj Sum --------------------------- ', CjSum
@@ -72,5 +72,5 @@ print '    |   Bi Sum --------------------------- ', BiSum
 print '    |   Matrix Dimensions ---------------- ', Aij.shape
 print '    |   Date/Time ------------------------ ', dt.datetime.now()
 print '*************************************************************************'
-print '-- Gurobi Canonical Primal Linear Programming Problem --'
+print '-- Gurobi Standard Primal Linear Programming Problem --'
 print '\nJames Gaboardi, 2015'
