@@ -21,17 +21,19 @@ import gurobipy as gbp
 import datetime as dt
 
 #  Constants
-Aij = np.random.randint(5, 50, 25)
-Aij = Aij.reshape(5,5)
+Aij = np.random.randint(5, 50, 250000)
+Aij = Aij.reshape(500,500)
 AijSum = np.sum(Aij)
-Oij = np.random.randint(5, 50, 25)
-Oij = Oij.reshape(5,5)
+Oij = np.random.randint(5, 10, 250000)
+Oij = Oij.reshape(500,500)
 OijSum = np.sum(Oij)
-Cj = np.random.randint(10, 20, 5)
+Cj = np.random.randint(10, 20, 500)
 CjSum = np.sum(Cj)
-Ej = np.random.randint(10, 20, 5)
+Ej = np.random.randint(10, 20, 500)
 EjSum = np.sum(Ej)
-Bi = np.random.randint(10, 20, 5)
+Gj = np.random.randint(10, 20, 500)
+GjSum = np.sum(Gj)
+Bi = np.random.randint(10, 20, 500)
 BiSum = np.sum(Bi)
 
 # Matrix Shape
@@ -68,8 +70,10 @@ mPrimal_Canonical_GUROBI.update()
 mPrimal_Canonical_GUROBI.setObjective(gbp.quicksum(Cj[dest]*desc_var[dest][0] 
                         for dest in cols) +
                         gbp.quicksum(Ej[dest]*o_var[dest][0] 
+                        for dest in cols) +
+                        gbp.quicksum(Gj[dest]*p_var[dest][0]
                         for dest in cols), 
-                        gbp.GRB.MAXIMIZE)
+                        gbp.GRB.MINIMIZE)
 
 # Constraints
 for orig in rows:
