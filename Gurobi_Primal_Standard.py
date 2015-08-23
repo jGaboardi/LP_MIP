@@ -73,7 +73,9 @@ def GbpStPrimLP():
     try:
         mPrimal_Standard_GUROBI.optimize()
     except Exception as e:
-        print e
+        print '   ################################################################'
+        print ' < ISSUE : ', e, ' >'
+        print '   ################################################################'
         
     # Write LP file
     mPrimal_Standard_GUROBI.write('LP.lp')
@@ -96,4 +98,6 @@ try:
     GbpStPrimLP()
     print '\nJames Gaboardi, 2015'
 except Exception as e:
-    print e
+    print '   ################################################################'
+    print ' < ISSUE : ', e, ' >'
+    print '   ################################################################'
