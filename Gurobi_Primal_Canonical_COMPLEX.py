@@ -114,7 +114,9 @@ def GbpPrimCanCOMPLEX():
     try:
         mPrimal_Canonical_GUROBI.optimize()
     except Exception as e:
-        print e
+        print '   ################################################################'
+        print ' < ISSUE : ', e, ' >'
+        print '   ################################################################'
      
     t2 = time.time() - t1       
     # Write LP file
@@ -141,4 +143,6 @@ try:
     GbpPrimCanCOMPLEX()
     print '\nJames Gaboardi, 2015'
 except Exception as e:
-    print e
+    print '   ################################################################'
+    print ' < ISSUE : ', e, ' >'
+    print '   ################################################################'
