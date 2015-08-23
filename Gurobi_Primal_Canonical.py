@@ -85,7 +85,6 @@ def GbpPrimCan():
     
 try:
    GbpPrimCan()
+   print 'James Gaboardi, 2015'
 except Exception as e:
     print e
-else:
-   print 'James Gaboardi, 2015'

@@ -139,7 +139,6 @@ def GbpPrimCanCOMPLEX():
     
 try:
     GbpPrimCanCOMPLEX()
+    print '\nJames Gaboardi, 2015'
 except Exception as e:
     print e
-else:
-    print '\nJames Gaboardi, 2015'
