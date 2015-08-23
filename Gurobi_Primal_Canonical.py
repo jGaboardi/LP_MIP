@@ -64,7 +64,9 @@ def GbpPrimCan():
     try:
         mPrimal_Canonical_GUROBI.optimize()
     except Exception as e:
-        print e
+        print '   ################################################################'
+        print ' < ISSUE : ', e, ' >'
+        print '   ################################################################'
     
     # Write LP file
     mPrimal_Canonical_GUROBI.write('LP.lp')
@@ -87,4 +89,6 @@ try:
    GbpPrimCan()
    print 'James Gaboardi, 2015'
 except Exception as e:
-    print e
+    print '   ################################################################'
+    print ' < ISSUE : ', e, ' >'
+    print '   ################################################################'
