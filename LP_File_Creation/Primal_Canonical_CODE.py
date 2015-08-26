@@ -32,6 +32,14 @@ def get_objective_function_CPLPP():
 # Add Constraints
 def get_constraint_CPLPP():
     outtext = ''
+    for i in range(rows):
+        #counter = counter + 1
+        temp = ''#' c' + str(counter) + ':  '
+        for j in range(cols):
+            temp += str(Aij[i,j]) + 'x' + str(j+1) + ' + '
+        outtext += temp[:-2] + '>= 1\n'
+    return outtext
+
 
 # Declaration of Bounds
 def get_bounds():
