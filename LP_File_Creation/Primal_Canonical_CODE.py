@@ -31,15 +31,15 @@ def get_objective_function_CPLPP():
 
 # Add Constraints
 def get_constraint_CPLPP():
+    counter = 0
     outtext = ''
     for i in range(rows):
-        #counter = counter + 1
-        temp = ''#' c' + str(counter) + ':  '
+        counter = counter + 1
+        temp = '  c' + str(counter) + ':  -' + str(Bi[i]) + ' + '
         for j in range(cols):
-            temp += str(Aij[i,j]) + 'x' + str(j+1) + ' + '
-        outtext += temp[:-2] + '>= 1\n'
+            temp += str(Aij[i,j]) + 'y' + str(j+1) + ' + '
+        outtext += temp[:-2] + '>= 0\n'
     return outtext
-
 
 # Declaration of Bounds
 def get_bounds():
@@ -67,7 +67,7 @@ Cj = np.random.randint(10, 20, 5)
 CjSum = np.sum(Cj)
 Bi = np.random.randint(10, 20, 5)
 BiSum = np.sum(Bi)
-    # Matrix Shape
+# Matrix Shape
 rows, cols = Aij.shape
 
 
