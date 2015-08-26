@@ -38,8 +38,15 @@ def get_objective_function_CPLPP():
 
 
 # Declaration of Decision Variables (form can be: Binary, Integer, etc.)
-# In this case decision variables are General.
-
+# In this case decision variables are Binary.
+def get_decision_variables():
+    outtext = ''
+    temp = ''
+    for j in range(1, cols+1):
+        temp += ' y' + str(j) + '\n'
+    outtext += temp
+    return outtext
+    
 #    3. DATA READS & VARIABLE DECLARATION
 #  Constants
 Aij = np.random.randint(5, 50, 25)
@@ -61,12 +68,16 @@ text += 'Minimize\n'
 text += get_objective_function_CPLPP()
 text += '\n'
 # Declaration of Constraints
-
-
-
+text += 'Subject To\n'
+#text += get_summed_rows()
+text += '\n'
+# Declaration of Bounds
+text += 'Bounds\n' 
+#text += get_bounds()
+text += '\n'
 # Declaration of Decision Variables form: Binaries
 text += 'Binaries\n'
-#text += get_decision_variables()
+text += get_decision_variables()
 text += '\n'
 text += 'End\n'
 text += "'''\n"
