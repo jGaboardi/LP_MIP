@@ -35,10 +35,10 @@ def get_constraint_CPLPP():
     outtext = ''
     for i in range(rows):
         counter = counter + 1
-        temp = '  c' + str(counter) + ':  - ' + str(Bi[i]) + ' + '
+        temp = '  c' + str(counter) + ':  ' #- ' + str(Bi[i]) + ' + '
         for j in range(cols):
             temp += str(Aij[i,j]) + ' y' + str(j+1) + ' + '
-        outtext += temp[:-2] + '>= 0\n'
+        outtext += temp[:-2] + '>= ' + str(Bi[i]) + '\n'    #0\n'
     return outtext
 
 # Declaration of Bounds
