@@ -13,6 +13,14 @@ GNU LESSER GENERAL PUBLIC LICENSE
 #                08/2015
 #                © James Gaboardi
 
+'''
+Adapted from:
+    Daskin, M. S.
+    1995
+    Network and Discrete Location: Models, Algorithms, and Applications
+    Hoboken, NJ, USA: John Wiley & Sons, Inc.
+'''
+
 #    1. IMPORTS
 # Other imports may be necessary for matrix creation and manipulation 
 import numpy as np
