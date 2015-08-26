@@ -62,7 +62,7 @@ rows, cols = Aij.shape
 
 #    4. START TEXT FOR .lp FILE
 # Declaration of Objective Function
-text = "The Canonical Primal Linear Programming Problemn"
+text = "The Canonical Primal Linear Programming Problem\n"
 text += "'''\n"
 text += 'Minimize\n'          
 text += get_objective_function_CPLPP()
