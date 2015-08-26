@@ -13,7 +13,6 @@ GNU LESSER GENERAL PUBLIC LICENSE
 #                08/2015
 #                © James Gaboardi
 
-
 #    1. IMPORTS
 # Other imports may be necessary for matrix creation and manipulation 
 import numpy as np
@@ -32,16 +31,14 @@ def get_objective_function_CPLPP():
 
 # Add Constraints
 def get_constraint_CPLPP():
-
+    outtext = ''
 
 # Declaration of Bounds
 def get_bounds():
     outtext = ''
-        for j in range(cols):
-            outtext += ' y' + str(j+1) + ' >= 0\n'
+    for j in range(cols):
+        outtext += ' y' + str(j+1) + ' >= 0\n'
     return outtext
-
-
 
 # Declaration of Decision Variables (form can be: Binary, Integer, etc.)
 # In this case decision variables are General.
