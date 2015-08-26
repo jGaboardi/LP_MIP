@@ -31,14 +31,20 @@ def get_objective_function_CPLPP():
     return outtext
 
 # Add Constraints
+def get_constraint_CPLPP():
+
 
 # Declaration of Bounds
-
+def get_bounds():
+    outtext = ''
+        for j in range(cols):
+            outtext += ' y' + str(j+1) + ' >= 0\n'
+    return outtext
 
 
 
 # Declaration of Decision Variables (form can be: Binary, Integer, etc.)
-# In this case decision variables are Binary.
+# In this case decision variables are General.
 def get_decision_variables():
     outtext = ''
     temp = ''
@@ -69,14 +75,14 @@ text += get_objective_function_CPLPP()
 text += '\n'
 # Declaration of Constraints
 text += 'Subject To\n'
-#text += get_summed_rows()
+text += get_constraint_CPLPP()
 text += '\n'
 # Declaration of Bounds
 text += 'Bounds\n' 
-#text += get_bounds()
+text += get_bounds()
 text += '\n'
-# Declaration of Decision Variables form: Binaries
-text += 'Binaries\n'
+# Declaration of Decision Variables form: Generals
+text += 'Generals\n'
 text += get_decision_variables()
 text += '\n'
 text += 'End\n'
