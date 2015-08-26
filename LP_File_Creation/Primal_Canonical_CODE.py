@@ -24,7 +24,7 @@ def get_objective_function_CPLPP():
     outtext = ' obj: '
     temp = ''
     for j in range(cols):
-        temp += str(Cj[j]) + 'y' + str(j+1) + ' + '
+        temp += str(Cj[j]) + ' y ' + str(j+1) + ' + '
     outtext += temp + ' \n      '
     outtext = outtext[:-11] + ' \n'
     return outtext
