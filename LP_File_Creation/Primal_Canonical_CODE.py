@@ -23,11 +23,10 @@ import numpy as np
 # Objective Function 
 def get_objective_function_CPLPP():
     outtext = ' obj: '
-    for i in range(rows):
-        temp = ''
-        for j in range(cols):
-            temp += str(Cij[i,j]) + 'x' + str(i+1) + '_' + str(j+1) + ' + '
-        outtext += temp + ' \n      '
+    temp = ''
+    for j in range(cols):
+        temp += str(Cj[j]) + 'y' + str(j+1) + ' + '
+    outtext += temp + ' \n      '
     outtext = outtext[:-11] + ' \n'
     return outtext
 
@@ -42,8 +41,16 @@ def get_objective_function_CPLPP():
 # In this case decision variables are General.
 
 #    3. DATA READS & VARIABLE DECLARATION
-# Cost Matrix
-
+#  Constants
+Aij = np.random.randint(5, 50, 25)
+Aij = Aij.reshape(5,5)
+AijSum = np.sum(Aij)
+Cj = np.random.randint(10, 20, 5)
+CjSum = np.sum(Cj)
+Bi = np.random.randint(10, 20, 5)
+BiSum = np.sum(Bi)
+    # Matrix Shape
+rows, cols = Aij.shape
 
 
 #    4. START TEXT FOR .lp FILE
@@ -54,3 +61,20 @@ text += 'Minimize\n'
 text += get_objective_function_CPLPP()
 text += '\n'
 # Declaration of Constraints
+
+
+
+# Declaration of Decision Variables form: Binaries
+text += 'Binaries\n'
+#text += get_decision_variables()
+text += '\n'
+text += 'End\n'
+text += "'''\n"
+text += "© James Gaboardi, 2015"                
+
+
+#   5. CREATE & WRITE .lp FILE TO DISK
+# Fill path name  --  File name must not have spaces.
+outfile = open('name.lp', 'w')
+outfile.write(text)
+outfile.close()
