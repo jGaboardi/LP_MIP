@@ -17,6 +17,8 @@ Example Linear Programming Problem
 James Gaboardi, MSGISci
 8/2015
 
+This .lp file can be read into a solver (CPLEX, Gurobi, etc.)
+
 x = Product 1
 y = Product 2
 
