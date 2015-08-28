@@ -29,7 +29,7 @@ Constraint 2 = Machine 2 time (hrs.)
 Constraint 3 = Machine 3 time (hrs.)
 
 
-Originally Published:
+Adapted from:
     Greenwald, D. U.
     1957
     Linear Programming: An Explanation of the Simplex Algorithm
