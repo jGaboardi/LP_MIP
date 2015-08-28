@@ -1,9 +1,9 @@
 Minimize
     9 x + 7 y
 Subject To
-    c1: 10 x + 5 y <= 50
-    c2: 6 x + 6 y <= 36
-    c3: 4.5 x + 18 y <= 81
+    c1: 10 x + 5 y >= 50
+    c2: 6 x + 6 y >= 36
+    c3: 4.5 x + 18 y >= 81
 Bounds
     x >= 0
     y >= 0
