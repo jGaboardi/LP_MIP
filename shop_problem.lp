@@ -1,8 +1,21 @@
+Maximize
+    9 x + 7 y
+Subject To
+    c1: 10 x + 5 y <= 50
+    c2: 6 x + 6 y <= 36
+    c3: 4.5 x + 18 y <= 81
+Bounds
+    x >= 0
+    y >= 0
+End
+'''
+
+
+Mathematical Optimization of Profit
+The Shop Problem
 Example Linear Programming Problem
-Optimizing Profits in a Shop
-
-
-
+James Gaboardi, MSGISci
+8/2015
 
 x = Product 1
 y = Product 2
@@ -13,19 +26,10 @@ Constraint 1 = Machine 1 time (hrs.)
 Constraint 2 = Machine 2 time (hrs.)
 Constraint 3 = Machine 3 time (hrs.)
 
-Originally in:
+
+Originally Published:
     Greenwald, D. U.
     1957
     Linear Programming: An Explanation of the Simplex Algorithm
     New York, NY
     The Ronald Press Company
-    
-
-'''
-Maximize
-    9x + 7y
-Subject To
-    c1: 10x + 5y <= 50
-    c2: 6x + 6y <= 36
-    c3: 4.5x + 18y <= 81
-End
