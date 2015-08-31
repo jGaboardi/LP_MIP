@@ -47,3 +47,17 @@ Iteration    Objective       Primal Inf.    Dual Inf.      Time
 
 Solved in 11 iterations and 0.01 seconds
 Optimal objective  7.481590294e+00
+Optimize a model with 20 rows, 20 columns and 20 nonzeros
+Coefficient statistics:
+  Matrix range    [5e+02, 6e+02]
+  Objective range [1e+01, 2e+01]
+  Bounds range    [0e+00, 0e+00]
+  RHS range       [1e+01, 2e+01]
+Presolve removed 20 rows and 20 columns
+Presolve time: 0.01s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    8.2286943e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.01 seconds
+Optimal objective  8.228694293e+00
