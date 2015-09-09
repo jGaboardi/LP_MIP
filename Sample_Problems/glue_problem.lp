@@ -11,21 +11,21 @@ End
 
 
 Mathematical Optimization of Profit
-The Shop Problem
+The Glue Problem
 Example Linear Programming Problem
 James Gaboardi, MSGISci
-8/2015
+9/2015
 
 This .lp file can be read into a solver (CPLEX, Gurobi, etc.)
 
-x = Product 1
-y = Product 2
+x = Glue 1
+y = Glue 2
 
-$9 for each unit of [x] and $7 for each unit of [y]
+$4 for each unit of [x] and $7 for each unit of [y]
 
-Constraint 1 = Machine 1 time (hrs.)
-Constraint 2 = Machine 2 time (hrs.)
-Constraint 3 = Machine 3 time (hrs.)
+Constraint 1 = Man (hrs.)
+Constraint 2 = Man (hrs.)
+
 
 
 Originally Published:
