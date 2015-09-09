@@ -24,7 +24,7 @@ This .lp file can be read into a solver (CPLEX, Gurobi, etc.)
 x = Airplane 1 (one pilot)
 y = Airplane 2 (one pilot)
 
-We need to miniimize the number of pilots.
+We need to minimize the number of pilots. 
 
 Constraint 1 = Passenger Seats
 Constraint 2 = Flight Attendants
