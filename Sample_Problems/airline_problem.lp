@@ -6,6 +6,9 @@ Subject To
 Bounds
     0 <= x <= 26
     0 <= y <= 13
+Integers
+    x
+    y
 End
 '''
 
